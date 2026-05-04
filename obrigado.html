@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pagamento Aprovado | Arquétipos Maçônicos</title>
+
+  <style>
+    :root {
+      --preto: #050505;
+      --grafite: #111111;
+      --dourado: #c99b3b;
+      --dourado-claro: #f5d27a;
+      --marfim: #f7f0df;
+      --texto: rgba(255,255,255,0.86);
+      --texto-suave: rgba(255,255,255,0.68);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(245,210,122,0.20), transparent 35%),
+        linear-gradient(180deg, #111 0%, #000 100%);
+      color: var(--texto);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    .container {
+      width: min(920px, 100%);
+      border: 1px solid rgba(245,210,122,0.35);
+      border-radius: 32px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035));
+      box-shadow: 0 35px 90px rgba(0,0,0,0.65);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(245,210,122,0.18);
+      border-radius: 24px;
+      pointer-events: none;
+    }
+
+    .header {
+      padding: 44px 34px 18px;
+      text-align: center;
+    }
+
+    .seal {
+      width: 86px;
+      height: 86px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 25%, var(--dourado-claro), var(--dourado) 55%, #7a5316);
+      color: #050505;
+      display: grid;
+      place-items: center;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 2.2rem;
+      font-weight: bold;
+      box-shadow: 0 0 0 8px rgba(245,210,122,0.10), 0 0 45px rgba(245,210,122,0.28);
+    }
+
+    h1, h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      line-height: 1.15;
+    }
+
+    h1 {
+      color: var(--dourado-claro);
+      font-size: clamp(2rem, 5vw, 3.7rem);
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--texto);
+      font-size: 1.12rem;
+      line-height: 1.7;
+    }
+
+    .content {
+      padding: 28px 34px 44px;
+    }
+
+    .alert {
+      border: 1px solid rgba(245,210,122,0.35);
+      background: rgba(0,0,0,0.38);
+      border-radius: 22px;
+      padding: 24px;
+      margin: 20px 0 28px;
+    }
+
+    .alert strong {
+      color: var(--dourado-claro);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .step {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(245,210,122,0.22);
+      border-radius: 20px;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--dourado), var(--dourado-claro));
+      color: #050505;
+      font-weight: 900;
+    }
+
+    .step h3 {
+      color: var(--dourado-claro);
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .step p {
+      color: var(--texto-suave);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .cta-box {
+      text-align: center;
+      margin-top: 34px;
+      padding: 32px 20px;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at center, rgba(245,210,122,0.13), transparent 55%),
+        rgba(0,0,0,0.36);
+      border: 1px solid rgba(245,210,122,0.28);
+    }
+
+    .cta-box h2 {
+      color: var(--marfim);
+      font-size: clamp(1.55rem, 4vw, 2.35rem);
+      margin-bottom: 12px;
+    }
+
+    .cta-box p {
+      color: var(--texto-suave);
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 16px 34px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #8a641d, var(--dourado), var(--dourado-claro));
+      color: #050505;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 18px 44px rgba(201,155,59,0.38);
+      transition: 0.22s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 26px 60px rgba(201,155,59,0.50);
+    }
+
+    .note {
+      margin-top: 22px;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.56);
+      text-align: center;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid rgba(245,210,122,0.16);
+      color: rgba(255,255,255,0.50);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 760px) {
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .header,
+      .content {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <section class="header">
+      <div class="seal">G</div>
+      <h1>Pagamento aprovado</h1>
+      <p class="subtitle">
+        Seu acesso ao Relatório de Arquétipos Maçônicos foi liberado.
+        Agora falta apenas responder ao questionário para que o sistema gere o seu relatório personalizado.
+      </p>
+    </section>
+
+    <section class="content">
+      <div class="alert">
+        <p>
+          <strong>Importante:</strong> utilize no formulário o
+          <strong>mesmo e-mail informado na compra</strong>.
+          O envio do relatório é liberado automaticamente apenas para o e-mail vinculado ao pagamento aprovado.
+        </p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Pagamento confirmado</h3>
+          <p>Sua compra foi aprovada e seu e-mail foi autorizado no sistema.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Responda o formulário</h3>
+          <p>Preencha as perguntas com atenção usando o mesmo e-mail da compra.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Receba o PDF</h3>
+          <p>O relatório será gerado e enviado automaticamente para seu e-mail.</p>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <h2>Responda agora e revele seu arquétipo dominante</h2>
+        <p>O questionário leva poucos minutos e é necessário para gerar seu relatório.</p>
+
+        <a
+          class="btn"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfzeCMHi5fQCu8CCtRp1WqWYLScOVsUTORZ7BX_iKoowe9M9w/viewform"
+          target="_blank"
+          rel="noopener"
+        >
+          Responder questionário agora
+        </a>
+
+        <p class="note">
+          Caso tenha usado outro e-mail por engano, entre em contato pelo suporte informado no comprovante da compra.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Arquétipos Maçônicos · Diagnóstico simbólico de perfil e evolução
+    </footer>
+  </main>
+</body>
+</html>
