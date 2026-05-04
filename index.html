@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relatório de Arquétipos Maçônicos</title>
+
+  <style>
+    :root {
+      --preto: #050505;
+      --preto-2: #0b0b0b;
+      --grafite: #141414;
+      --grafite-2: #1f1f1f;
+      --dourado: #c99b3b;
+      --dourado-claro: #f5d27a;
+      --dourado-escuro: #8a641d;
+      --marfim: #f4ead6;
+      --branco: #ffffff;
+      --texto-claro: rgba(255,255,255,0.86);
+      --texto-suave: rgba(255,255,255,0.68);
+      --texto-escuro: #161616;
+      --borda-dourada: rgba(245,210,122,0.38);
+      --vidro: rgba(255,255,255,0.08);
+      --sombra-premium: 0 32px 90px rgba(0,0,0,0.55);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--texto-claro);
+      background: var(--preto);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background-image: url('https://drive.google.com/file/d/1d7BKhA7D84eR_D5Gq0-nvgQSQqXdBMlV/view?usp=sharing');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 50% 12%, rgba(245,210,122,0.22), transparent 28%),
+        radial-gradient(circle at 85% 35%, rgba(201,155,59,0.12), transparent 30%),
+        linear-gradient(180deg, rgba(0,0,0,0.72), rgba(0,0,0,0.92) 58%, rgba(0,0,0,0.98));
+      pointer-events: none;
+    }
+
+    a { text-decoration: none; }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    .gold-line {
+      width: 120px;
+      height: 2px;
+      margin: 18px auto 0;
+      background: linear-gradient(90deg, transparent, var(--dourado-claro), transparent);
+      box-shadow: 0 0 18px rgba(245,210,122,0.55);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(245,210,122,0.30);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.55);
+    }
+
+    .topbar .container {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--branco);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: bold;
+      letter-spacing: 0.9px;
+      font-size: 1.14rem;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 30% 20%, var(--dourado-claro), var(--dourado) 58%, var(--dourado-escuro));
+      color: #070707;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: bold;
+      box-shadow: 0 0 0 4px rgba(245,210,122,0.13), 0 0 28px rgba(245,210,122,0.25);
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.92rem;
+      margin-left: 20px;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--dourado-claro);
+      text-shadow: 0 0 12px rgba(245,210,122,0.55);
+    }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+      padding: 94px 0 78px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(245,210,122,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,210,122,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 86%);
+      pointer-events: none;
+    }
+
+.hero-report-mockup {
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(245,210,122,0.46);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.55);
+  background: #080808;
+}
+
+.hero-report-mockup img {
+  width: 100%;
+  display: block;
+  border-radius: 28px;
+}
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.03fr 0.97fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--dourado-claro);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.76rem;
+      font-weight: 900;
+      margin-bottom: 17px;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      line-height: 1.12;
+    }
+
+    h1 {
+      color: var(--branco);
+      font-size: clamp(2.7rem, 5.7vw, 5.55rem);
+      margin-bottom: 24px;
+      text-shadow: 0 20px 60px rgba(0,0,0,0.78), 0 0 28px rgba(201,155,59,0.18);
+    }
+
+    .hero p {
+      max-width: 690px;
+      color: rgba(255,255,255,0.84);
+      font-size: 1.16rem;
+      margin-bottom: 31px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 15px 27px;
+      border-radius: 999px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+
+    .btn-primary {
+      color: #050505;
+      background: linear-gradient(135deg, var(--dourado-escuro), var(--dourado) 38%, var(--dourado-claro) 76%, #fff0b4);
+      box-shadow: 0 20px 48px rgba(201,155,59,0.36), inset 0 1px 0 rgba(255,255,255,0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 28px 68px rgba(201,155,59,0.48), 0 0 28px rgba(245,210,122,0.20);
+    }
+
+    .btn-outline {
+      color: var(--branco);
+      border: 1px solid rgba(245,210,122,0.42);
+      background: rgba(255,255,255,0.04);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--dourado-claro);
+      color: var(--dourado-claro);
+      transform: translateY(-2px);
+      box-shadow: 0 0 22px rgba(245,210,122,0.20);
+    }
+
+    .premium-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.045));
+      border: 1px solid var(--borda-dourada);
+      border-radius: 36px;
+      padding: 18px;
+      box-shadow: var(--sombra-premium);
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .premium-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, rgba(245,210,122,0.46), transparent 29%, rgba(255,255,255,0.10), transparent 72%);
+      pointer-events: none;
+      opacity: 0.68;
+    }
+
+    .report-preview {
+      position: relative;
+      min-height: 488px;
+      border-radius: 28px;
+      padding: 31px;
+      overflow: hidden;
+      color: var(--marfim);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.74), rgba(20,20,20,0.88)),
+        radial-gradient(circle at center, rgba(201,155,59,0.20), transparent 48%);
+      border: 2px solid rgba(245,210,122,0.46);
+    }
+
+    .report-preview::after {
+      content: "G";
+      position: absolute;
+      left: 50%;
+      top: 53%;
+      transform: translate(-50%, -50%);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 18rem;
+      color: rgba(245,210,122,0.055);
+      pointer-events: none;
+    }
+
+    .report-preview h3 {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      font-size: 2rem;
+      color: var(--dourado-claro);
+      margin-bottom: 22px;
+      text-shadow: 0 0 18px rgba(201,155,59,0.22);
+    }
+
+    .report-box {
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(245,210,122,0.36);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 42px rgba(0,0,0,0.32);
+      backdrop-filter: blur(10px);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(0,0,0,0.82);
+      color: var(--dourado-claro);
+      border: 1px solid rgba(245,210,122,0.35);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      margin-bottom: 13px;
+      font-weight: bold;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .metric {
+      border-radius: 18px;
+      padding: 15px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(245,210,122,0.28);
+      text-align: center;
+    }
+
+    .metric strong {
+      display: block;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--dourado-claro);
+      font-size: 1.75rem;
+    }
+
+    section {
+      padding: 84px 0;
+      position: relative;
+    }
+
+    .dark-section {
+      background:
+        linear-gradient(180deg, rgba(5,5,5,0.96), rgba(15,15,15,0.96));
+      border-top: 1px solid rgba(245,210,122,0.12);
+      border-bottom: 1px solid rgba(245,210,122,0.12);
+    }
+
+    .gold-section {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(245,210,122,0.14), transparent 38%),
+        linear-gradient(180deg, rgba(12,12,12,0.94), rgba(0,0,0,0.96));
+      backdrop-filter: blur(10px);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-title h2 {
+      color: var(--branco);
+      font-size: clamp(2rem, 4vw, 3.42rem);
+      margin-bottom: 15px;
+      text-shadow: 0 16px 42px rgba(0,0,0,0.45);
+    }
+
+    .section-title p {
+      max-width: 790px;
+      margin: 0 auto;
+      color: rgba(255,255,255,0.70);
+      font-size: 1.07rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .panel,
+    .feature,
+    .step,
+    .faq-item {
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.045));
+      border: 1px solid rgba(245,210,122,0.24);
+      border-radius: 28px;
+      padding: 31px;
+      box-shadow: 0 22px 52px rgba(0,0,0,0.28);
+      backdrop-filter: blur(10px);
+    }
+
+    .panel h3,
+    .feature h3,
+    .step h3,
+    .faq-item h3 {
+      color: var(--dourado-claro);
+      font-size: 1.42rem;
+      margin-bottom: 12px;
+    }
+
+    .panel p,
+    .feature p,
+    .step p,
+    .faq-item p {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 23px;
+    }
+
+    .feature {
+      transition: 0.22s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-6px);
+      border-color: rgba(245,210,122,0.48);
+      box-shadow: 0 30px 76px rgba(0,0,0,0.38), 0 0 22px rgba(245,210,122,0.08);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 30% 20%, var(--dourado-claro), var(--dourado) 60%, var(--dourado-escuro));
+      color: var(--preto);
+      font-weight: 900;
+      margin-bottom: 17px;
+      box-shadow: 0 0 0 6px rgba(245,210,122,0.10), 0 0 28px rgba(245,210,122,0.17);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      text-align: center;
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      background: radial-gradient(circle at 30% 20%, var(--dourado-claro), var(--dourado) 60%, var(--dourado-escuro));
+      color: var(--preto);
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .report-layout {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .mockup-frame {
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.045));
+      border: 1px solid var(--borda-dourada);
+      border-radius: 36px;
+      padding: 22px;
+      box-shadow: var(--sombra-premium);
+      backdrop-filter: blur(12px);
+    }
+
+    .mockup-image-space {
+      min-height: 620px;
+      border-radius: 26px;
+      border: 2px dashed rgba(245,210,122,0.58);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.78), rgba(28,28,28,0.92));
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 26px;
+      color: var(--dourado-claro);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .mockup-image-space::before {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(245,210,122,0.26);
+      border-radius: 18px;
+      pointer-events: none;
+    }
+
+    .mockup-image-space strong {
+      display: block;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .relatorio-img {
+      width: 100%;
+      max-height: 620px;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 24px 58px rgba(0,0,0,0.42);
+      border: 1px solid rgba(245,210,122,0.34);
+      background: #111;
+    }
+
+    .report-copy h2 {
+      color: var(--branco);
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      margin-bottom: 18px;
+    }
+
+    .report-copy p {
+      color: rgba(255,255,255,0.76);
+      margin-bottom: 18px;
+    }
+
+    .checklist {
+      list-style: none;
+      margin-top: 18px;
+    }
+
+    .checklist li {
+      margin: 12px 0;
+      color: rgba(255,255,255,0.88);
+    }
+
+    .checklist li::before {
+      content: "✦";
+      color: var(--dourado-claro);
+      margin-right: 10px;
+    }
+
+    .testimonial {
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(245,210,122,0.12), transparent 40%),
+        linear-gradient(180deg, #0b0b0b, #050505);
+      border-top: 1px solid rgba(245,210,122,0.14);
+      border-bottom: 1px solid rgba(245,210,122,0.14);
+    }
+
+    .quote {
+      max-width: 900px;
+      margin: 0 auto;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--branco);
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      line-height: 1.38;
+    }
+
+    .quote-author {
+      margin-top: 20px;
+      color: var(--dourado-claro);
+      font-weight: 900;
+    }
+
+    .offer {
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(245,210,122,0.18), transparent 36%),
+        rgba(0,0,0,0.78);
+      backdrop-filter: blur(10px);
+    }
+
+    .offer-box {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 46px 34px;
+      border-radius: 38px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.045));
+      border: 1px solid var(--borda-dourada);
+      box-shadow: var(--sombra-premium);
+      color: var(--branco);
+    }
+
+    .offer-box h2 {
+      font-size: clamp(2rem, 4vw, 3.35rem);
+    }
+
+    .price {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(3.5rem, 8vw, 5.7rem);
+      color: var(--dourado-claro);
+      margin: 14px 0 4px;
+      text-shadow: 0 20px 50px rgba(0,0,0,0.55), 0 0 22px rgba(245,210,122,0.22);
+    }
+
+    .small {
+      color: rgba(255,255,255,0.70);
+      font-size: 0.94rem;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .final-cta {
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(245,210,122,0.13), transparent 38%),
+        linear-gradient(180deg, #111, #050505);
+    }
+
+    .final-cta h2 {
+      color: var(--branco);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      margin-bottom: 14px;
+    }
+
+    .final-cta p {
+      color: rgba(255,255,255,0.72);
+    }
+
+    footer {
+      padding: 30px 0;
+      text-align: center;
+      color: rgba(255,255,255,0.64);
+      border-top: 1px solid rgba(245,210,122,0.22);
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(10px);
+      font-size: 0.92rem;
+    }
+
+    .floating-cta {
+      display: none;
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 2000;
+      box-shadow: 0 18px 46px rgba(0,0,0,0.46);
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .two-col,
+      .report-layout,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid,
+      .steps-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      nav { display: none; }
+
+      .mockup-image-space { min-height: 500px; }
+    }
+
+    @media (max-width: 580px) {
+      .hero { padding: 62px 0 48px; }
+      .features-grid,
+      .steps-grid,
+      .metrics { grid-template-columns: 1fr; }
+      .buttons .btn { width: 100%; }
+      .premium-card, .offer-box, .mockup-frame { border-radius: 24px; }
+      .report-preview { min-height: 430px; }
+      .mockup-image-space { min-height: 420px; }
+      .floating-cta { display: flex; }
+      .topbar .container { min-height: 66px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <span class="brand-mark">G</span>
+        <span>Arquétipos Maçônicos</span>
+      </div>
+      <nav>
+        <a href="#beneficios">Benefícios</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#relatorio">Relatório</a>
+        <a href="#faq">Dúvidas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Diagnóstico simbólico de perfil maçônico</div>
+          <h1>Descubra seu Perfil Maçônico</h1>
+          <p>
+            Receba um relatório personalizado com base em arquétipos maçônicos, revelando suas forças predominantes, seu perfil de atuação e os caminhos para evoluir com mais consciência dentro da Ordem.
+          </p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="LINK_DO_CHECKOUT_AQUI">Quero meu relatório agora</a>
+            <a class="btn btn-outline" href="#relatorio">Ver exemplo do relatório</a>
+          </div>
+        </div>
+
+        <div class="premium-card">
+  <div class="hero-report-mockup">
+    <img src="https://drive.google.com/file/d/1fvokAVp-xrdc1-x0sK9ZtRJtJx5aAG1z/view?usp=sharing" alt="Prévia do Relatório de Arquétipos Maçônicos">
+  </div>
+</div>
+      </div>
+    </section>
+
+    <section class="dark-section">
+      <div class="container two-col">
+        <div class="panel">
+          <h3>Muitos irmãos avançam sem clareza sobre seu papel</h3>
+          <p>
+            A caminhada maçônica é rica em símbolos, virtudes e responsabilidades. Porém, nem sempre o Irmão consegue identificar com clareza quais características predominam em sua atuação e quais pontos precisam ser desenvolvidos.
+          </p>
+        </div>
+        <div class="panel">
+          <h3>O autoconhecimento fortalece a caminhada</h3>
+          <p>
+            Ao reconhecer seu perfil, o Irmão amplia sua consciência sobre sua atuação na Loja, sua relação com os demais e sua forma de contribuir para a construção coletiva.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios" class="gold-section">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">O que você recebe</div>
+          <h2>Um relatório completo, elegante e personalizado</h2>
+          <div class="gold-line"></div>
+          <p>Após responder ao questionário, você recebe automaticamente um PDF com análise do seu perfil, ranking dos arquétipos e considerações finais para reflexão.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature"><div class="icon">1</div><h3>Arquétipo dominante</h3><p>Identifique a tendência mais forte da sua atuação simbólica e comportamental.</p></div>
+          <div class="feature"><div class="icon">2</div><h3>Perfil secundário</h3><p>Compreenda o arquétipo que complementa sua forma de agir e se relacionar.</p></div>
+          <div class="feature"><div class="icon">3</div><h3>Arquétipo a desenvolver</h3><p>Veja qual dimensão merece atenção para maior equilíbrio e maturidade.</p></div>
+          <div class="feature"><div class="icon">4</div><h3>Ranking completo</h3><p>Receba a pontuação de todos os arquétipos avaliados no questionário.</p></div>
+          <div class="feature"><div class="icon">5</div><h3>Análise interpretativa</h3><p>Texto personalizado com leitura simbólica do seu resultado principal.</p></div>
+          <div class="feature"><div class="icon">6</div><h3>PDF profissional</h3><p>Relatório visualmente elegante, pronto para guardar ou compartilhar.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="como-funciona">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Processo simples</div>
+          <h2>Como funciona</h2>
+          <div class="gold-line"></div>
+          <p>Você realiza o pagamento, responde ao questionário e recebe seu relatório automaticamente no e-mail informado.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step"><div class="step-number">1</div><h3>Faça o pagamento</h3><p>Acesse o checkout seguro e confirme sua participação.</p></div>
+          <div class="step"><div class="step-number">2</div><h3>Responda o questionário</h3><p>Utilize a escala de 1 a 5 nas afirmações apresentadas.</p></div>
+          <div class="step"><div class="step-number">3</div><h3>O sistema calcula</h3><p>As respostas são processadas automaticamente.</p></div>
+          <div class="step"><div class="step-number">4</div><h3>Receba o PDF</h3><p>Seu relatório é enviado diretamente para seu e-mail.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gold-section" id="relatorio">
+      <div class="container report-layout">
+        <div class="mockup-frame">
+          <div class="mockup-image-space">
+            <img src="modelo-relatorio.png" alt="Exemplo do Relatório de Arquétipos Maçônicos" class="relatorio-img">
+          </div>
+        </div>
+
+        <div class="report-copy">
+          <div class="eyebrow">Exemplo visual</div>
+          <h2>Um relatório com apresentação profissional</h2>
+          <p>
+            O resultado não é entregue como uma simples resposta de formulário. O participante recebe um documento visualmente elegante, com leitura clara, identidade simbólica e estrutura adequada para reflexão pessoal.
+          </p>
+          <ul class="checklist">
+            <li>Identificação do participante</li>
+            <li>Resultado principal e secundário</li>
+            <li>Arquétipo a desenvolver</li>
+            <li>Análise interpretativa personalizada</li>
+            <li>Ranking completo de pontuação</li>
+            <li>Considerações finais para reflexão maçônica</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonial">
+      <div class="container">
+        <p class="quote">
+          “O relatório trouxe uma visão muito clara sobre minha atuação dentro da Ordem. Consegui identificar pontos fortes e aspectos que merecem desenvolvimento.”
+        </p>
+        <div class="quote-author">— Ir. Marcos Teixeira M.I.</div>
+      </div>
+
+<div class="container">
+        <p class="quote">
+          “Não acreditei quando recebi meu relatório o quão certo estavam os resultados. Agora já sei o que preciso trabalhar para fortalecer o meu Templo interior.”
+        </p>
+        <div class="quote-author">— Ir. João Cândido M.M.</div>
+      </div>
+         <p class="quote">
+09:32 04/05/2026 “No começo não dei muita importância para o Relatório, mas ao parar pra pensar constatei que o que estava no resultado era exatamente o que eu precisava buscar. Estou muito contente com essa nova perspectiva dentro da Ordem.”
+        </p>
+        <div class="quote-author">— Ir. Álvaro Soares M.M.</div>
+      </div>
+
+    </section>
+
+    <section class="offer">
+      <div class="container">
+        <div class="offer-box">
+          <div class="eyebrow">Acesso imediato</div>
+          <h2>Receba seu Relatório de Arquétipos Maçônicos</h2>
+          <div class="price">R$ 14,90</div>
+          <p>Pagamento único. Questionário liberado após confirmação.</p>
+          <br />
+          <a class="btn btn-primary" href="LINK_DO_CHECKOUT_AQUI">Quero meu relatório agora</a>
+          <p class="small" style="margin-top: 16px;">Garantia de 7 dias. Caso não esteja satisfeito, solicite o reembolso.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="faq">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Dúvidas frequentes</div>
+          <h2>Perguntas e respostas</h2>
+          <div class="gold-line"></div>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-item"><h3>Preciso ser maçom para responder?</h3><p>Sim. O conteúdo foi elaborado para irmãos iniciados e utiliza linguagem própria da caminhada maçônica.</p></div>
+          <div class="faq-item"><h3>Quando recebo o relatório?</h3><p>Após responder ao questionário, o relatório é gerado e enviado automaticamente para seu e-mail.</p></div>
+          <div class="faq-item"><h3>O relatório é uma avaliação psicológica?</h3><p>Não. Trata-se de instrumento simbólico e reflexivo, voltado ao autoconhecimento maçônico.</p></div>
+          <div class="faq-item"><h3>Posso compartilhar com minha Loja?</h3><p>Sim. O relatório pode servir como base para reflexão, estudo e desenvolvimento pessoal.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <h2>Descubra seu perfil e avance com mais consciência em sua senda maçônica</h2>
+        <p>Receba seu diagnóstico estruturado em PDF por um valor acessível.</p>
+        <br />
+        <a class="btn btn-primary" href="LINK_DO_CHECKOUT_AQUI">Quero descobrir meu perfil</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Relatório de Arquétipos Maçônicos · Instrumento simbólico e reflexivo de autoconhecimento.</p>
+    </div>
+  </footer>
+
+  <a class="btn btn-primary floating-cta" href="LINK_DO_CHECKOUT_AQUI">Quero meu relatório</a>
+</body>
+</html>
