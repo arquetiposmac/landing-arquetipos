@@ -51,6 +51,8 @@
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
+      transform: scale(1.03);
+      filter: saturate(0.85) contrast(1.12) brightness(0.72);
     }
 
     body::after {
@@ -154,19 +156,21 @@
       pointer-events: none;
     }
 
-.hero-report-mockup {
-  border-radius: 28px;
-  overflow: hidden;
-  border: 1px solid rgba(245,210,122,0.46);
-  box-shadow: 0 28px 70px rgba(0,0,0,0.55);
-  background: #080808;
-}
+    .hero-report-mockup {
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(245,210,122,0.46);
+      box-shadow: 0 28px 70px rgba(0,0,0,0.55);
+      background: #080808;
+      position: relative;
+      z-index: 1;
+    }
 
-.hero-report-mockup img {
-  width: 100%;
-  display: block;
-  border-radius: 28px;
-}
+    .hero-report-mockup img {
+      width: 100%;
+      display: block;
+      border-radius: 28px;
+    }
 
     .hero-grid {
       position: relative;
@@ -268,94 +272,13 @@
       opacity: 0.68;
     }
 
-    .report-preview {
-      position: relative;
-      min-height: 488px;
-      border-radius: 28px;
-      padding: 31px;
-      overflow: hidden;
-      color: var(--marfim);
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.74), rgba(20,20,20,0.88)),
-        radial-gradient(circle at center, rgba(201,155,59,0.20), transparent 48%);
-      border: 2px solid rgba(245,210,122,0.46);
-    }
-
-    .report-preview::after {
-      content: "G";
-      position: absolute;
-      left: 50%;
-      top: 53%;
-      transform: translate(-50%, -50%);
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 18rem;
-      color: rgba(245,210,122,0.055);
-      pointer-events: none;
-    }
-
-    .report-preview h3 {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      font-size: 2rem;
-      color: var(--dourado-claro);
-      margin-bottom: 22px;
-      text-shadow: 0 0 18px rgba(201,155,59,0.22);
-    }
-
-    .report-box {
-      position: relative;
-      z-index: 1;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(245,210,122,0.36);
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 42px rgba(0,0,0,0.32);
-      backdrop-filter: blur(10px);
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(0,0,0,0.82);
-      color: var(--dourado-claro);
-      border: 1px solid rgba(245,210,122,0.35);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      margin-bottom: 13px;
-      font-weight: bold;
-    }
-
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .metric {
-      border-radius: 18px;
-      padding: 15px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(245,210,122,0.28);
-      text-align: center;
-    }
-
-    .metric strong {
-      display: block;
-      font-family: Georgia, 'Times New Roman', serif;
-      color: var(--dourado-claro);
-      font-size: 1.75rem;
-    }
-
     section {
       padding: 84px 0;
       position: relative;
     }
 
     .dark-section {
-      background:
-        linear-gradient(180deg, rgba(5,5,5,0.96), rgba(15,15,15,0.96));
+      background: linear-gradient(180deg, rgba(5,5,5,0.96), rgba(15,15,15,0.96));
       border-top: 1px solid rgba(245,210,122,0.12);
       border-bottom: 1px solid rgba(245,210,122,0.12);
     }
@@ -492,8 +415,7 @@
       min-height: 620px;
       border-radius: 26px;
       border: 2px dashed rgba(245,210,122,0.58);
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.78), rgba(28,28,28,0.92));
+      background: linear-gradient(180deg, rgba(0,0,0,0.78), rgba(28,28,28,0.92));
       display: grid;
       place-items: center;
       text-align: center;
@@ -512,13 +434,6 @@
       pointer-events: none;
     }
 
-    .mockup-image-space strong {
-      display: block;
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1.6rem;
-      margin-bottom: 8px;
-    }
-
     .relatorio-img {
       width: 100%;
       max-height: 620px;
@@ -527,6 +442,8 @@
       box-shadow: 0 24px 58px rgba(0,0,0,0.42);
       border: 1px solid rgba(245,210,122,0.34);
       background: #111;
+      position: relative;
+      z-index: 1;
     }
 
     .report-copy h2 {
@@ -565,17 +482,31 @@
       border-bottom: 1px solid rgba(245,210,122,0.14);
     }
 
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .testimonial-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.045));
+      border: 1px solid rgba(245,210,122,0.24);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 22px 52px rgba(0,0,0,0.28);
+      backdrop-filter: blur(10px);
+      text-align: left;
+    }
+
     .quote {
-      max-width: 900px;
-      margin: 0 auto;
       font-family: Georgia, 'Times New Roman', serif;
       color: var(--branco);
-      font-size: clamp(1.55rem, 3vw, 2.35rem);
-      line-height: 1.38;
+      font-size: 1.15rem;
+      line-height: 1.5;
     }
 
     .quote-author {
-      margin-top: 20px;
+      margin-top: 18px;
       color: var(--dourado-claro);
       font-weight: 900;
     }
@@ -663,7 +594,8 @@
       .hero-grid,
       .two-col,
       .report-layout,
-      .faq-grid {
+      .faq-grid,
+      .testimonial-grid {
         grid-template-columns: 1fr;
       }
 
@@ -673,18 +605,15 @@
       }
 
       nav { display: none; }
-
       .mockup-image-space { min-height: 500px; }
     }
 
     @media (max-width: 580px) {
       .hero { padding: 62px 0 48px; }
       .features-grid,
-      .steps-grid,
-      .metrics { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
       .buttons .btn { width: 100%; }
       .premium-card, .offer-box, .mockup-frame { border-radius: 24px; }
-      .report-preview { min-height: 430px; }
       .mockup-image-space { min-height: 420px; }
       .floating-cta { display: flex; }
       .topbar .container { min-height: 66px; }
@@ -724,10 +653,10 @@
         </div>
 
         <div class="premium-card">
-  <div class="hero-report-mockup">
-    <img src="https://drive.google.com/uc?export=view&id=1fvokAVp-xrdc1-x0sK9ZtRJtJx5aAG1z" alt="Prévia do Relatório de Arquétipos Maçônicos">
-  </div>
-</div>
+          <div class="hero-report-mockup">
+            <img src="https://drive.google.com/uc?export=view&id=1fvokAVp-xrdc1-x0sK9ZtRJtJx5aAG1z" alt="Prévia do Relatório de Arquétipos Maçônicos">
+          </div>
+        </div>
       </div>
     </section>
 
@@ -790,7 +719,7 @@
       <div class="container report-layout">
         <div class="mockup-frame">
           <div class="mockup-image-space">
-            <img src="https://drive.google.com/uc?export=view&id=1d7BKhA7D84eR_D5Gq0-nvgQSQqXdBMlV" alt="Modelo do relatório">" alt="Exemplo do Relatório de Arquétipos Maçônicos" class="relatorio-img">
+            <img src="https://drive.google.com/uc?export=view&id=1fvokAVp-xrdc1-x0sK9ZtRJtJx5aAG1z" alt="Exemplo do Relatório de Arquétipos Maçônicos" class="relatorio-img">
           </div>
         </div>
 
@@ -814,24 +743,29 @@
 
     <section class="testimonial">
       <div class="container">
-        <p class="quote">
-          “O relatório trouxe uma visão muito clara sobre minha atuação dentro da Ordem. Consegui identificar pontos fortes e aspectos que merecem desenvolvimento.”
-        </p>
-        <div class="quote-author">— Ir. Marcos Teixeira M.I.</div>
-      </div>
+        <div class="section-title">
+          <div class="eyebrow">Depoimentos</div>
+          <h2>O que dizem os Irmãos</h2>
+          <div class="gold-line"></div>
+        </div>
 
-<div class="container">
-        <p class="quote">
-          “Não acreditei quando recebi meu relatório o quão certo estavam os resultados. Agora já sei o que preciso trabalhar para fortalecer o meu Templo interior.”
-        </p>
-        <div class="quote-author">— Ir. João Cândido M.M.</div>
-      </div>
-         <p class="quote">
-09:32 04/05/2026 “No começo não dei muita importância para o Relatório, mas ao parar pra pensar constatei que o que estava no resultado era exatamente o que eu precisava buscar. Estou muito contente com essa nova perspectiva dentro da Ordem.”
-        </p>
-        <div class="quote-author">— Ir. Álvaro Soares M.M.</div>
-      </div>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <p class="quote">“O relatório trouxe uma visão muito clara sobre minha atuação dentro da Ordem. Consegui identificar pontos fortes e aspectos que merecem desenvolvimento.”</p>
+            <div class="quote-author">— Ir. Marcos Teixeira M.I.</div>
+          </div>
 
+          <div class="testimonial-card">
+            <p class="quote">“Não acreditei quando recebi meu relatório o quão certos estavam os resultados. Agora já sei o que preciso trabalhar para fortalecer o meu Templo interior.”</p>
+            <div class="quote-author">— Ir. João Cândido M.M.</div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="quote">“No começo não dei muita importância para o relatório, mas, ao parar para pensar, constatei que o resultado era exatamente o que eu precisava buscar.”</p>
+            <div class="quote-author">— Ir. Álvaro Soares M.M.</div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="offer">
