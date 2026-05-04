@@ -8,11 +8,10 @@
   <style>
     :root {
       --preto: #050505;
-      --grafite: #111111;
       --dourado: #c99b3b;
       --dourado-claro: #f5d27a;
       --marfim: #f7f0df;
-      --texto: rgba(255,255,255,0.86);
+      --texto: rgba(255,255,255,0.88);
       --texto-suave: rgba(255,255,255,0.68);
     }
 
@@ -25,58 +24,68 @@
     body {
       min-height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(245,210,122,0.20), transparent 35%),
-        linear-gradient(180deg, #111 0%, #000 100%);
       color: var(--texto);
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.78), rgba(0,0,0,0.95)),
+        url("./background-landing.png");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(245,210,122,0.20), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(201,155,59,0.14), transparent 35%);
+      pointer-events: none;
+      z-index: -1;
     }
 
     .container {
-      width: min(920px, 100%);
+      width: min(1040px, 100%);
       border: 1px solid rgba(245,210,122,0.35);
       border-radius: 32px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035));
-      box-shadow: 0 35px 90px rgba(0,0,0,0.65);
+      background: linear-gradient(180deg, rgba(10,10,10,0.88), rgba(0,0,0,0.78));
+      box-shadow: 0 35px 90px rgba(0,0,0,0.70);
       overflow: hidden;
       position: relative;
+      backdrop-filter: blur(10px);
     }
 
     .container::before {
       content: "";
       position: absolute;
       inset: 14px;
-      border: 1px solid rgba(245,210,122,0.18);
+      border: 1px solid rgba(245,210,122,0.16);
       border-radius: 24px;
       pointer-events: none;
     }
 
     .header {
-      padding: 44px 34px 18px;
+      padding: 42px 34px 20px;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
-    .seal {
-      width: 86px;
-      height: 86px;
+    .logo {
+      width: 104px;
+      height: 104px;
+      object-fit: contain;
+      display: block;
       margin: 0 auto 20px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 25%, var(--dourado-claro), var(--dourado) 55%, #7a5316);
-      color: #050505;
-      display: grid;
-      place-items: center;
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 2.2rem;
-      font-weight: bold;
-      box-shadow: 0 0 0 8px rgba(245,210,122,0.10), 0 0 45px rgba(245,210,122,0.28);
+      filter: drop-shadow(0 0 22px rgba(245,210,122,0.28));
     }
 
     h1, h2 {
-      font-family: Georgia, 'Times New Roman', serif;
+      font-family: Georgia, "Times New Roman", serif;
       line-height: 1.15;
     }
 
@@ -84,10 +93,11 @@
       color: var(--dourado-claro);
       font-size: clamp(2rem, 5vw, 3.7rem);
       margin-bottom: 14px;
+      text-shadow: 0 0 28px rgba(245,210,122,0.16);
     }
 
     .subtitle {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
       color: var(--texto);
       font-size: 1.12rem;
@@ -95,15 +105,24 @@
     }
 
     .content {
-      padding: 28px 34px 44px;
+      padding: 26px 34px 44px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.72fr;
+      gap: 26px;
+      align-items: stretch;
     }
 
     .alert {
       border: 1px solid rgba(245,210,122,0.35);
-      background: rgba(0,0,0,0.38);
+      background: rgba(0,0,0,0.42);
       border-radius: 22px;
       padding: 24px;
-      margin: 20px 0 28px;
+      margin-bottom: 24px;
     }
 
     .alert strong {
@@ -113,15 +132,15 @@
     .steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 28px 0;
+      gap: 14px;
+      margin: 24px 0;
     }
 
     .step {
       background: rgba(255,255,255,0.07);
       border: 1px solid rgba(245,210,122,0.22);
       border-radius: 20px;
-      padding: 22px;
+      padding: 20px;
       text-align: center;
     }
 
@@ -140,23 +159,53 @@
     .step h3 {
       color: var(--dourado-claro);
       margin-bottom: 8px;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
     }
 
     .step p {
       color: var(--texto-suave);
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       line-height: 1.5;
+    }
+
+    .report-card {
+      border-radius: 26px;
+      border: 1px solid rgba(245,210,122,0.30);
+      background:
+        radial-gradient(circle at top, rgba(245,210,122,0.10), transparent 42%),
+        rgba(255,255,255,0.055);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 24px 60px rgba(0,0,0,0.34);
+    }
+
+    .report-card h2 {
+      color: var(--marfim);
+      font-size: 1.55rem;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .report-img {
+      width: 100%;
+      max-height: 560px;
+      object-fit: contain;
+      border-radius: 18px;
+      border: 1px solid rgba(245,210,122,0.28);
+      box-shadow: 0 22px 50px rgba(0,0,0,0.46);
+      background: rgba(0,0,0,0.35);
     }
 
     .cta-box {
       text-align: center;
-      margin-top: 34px;
+      margin-top: 26px;
       padding: 32px 20px;
       border-radius: 24px;
       background:
         radial-gradient(circle at center, rgba(245,210,122,0.13), transparent 55%),
-        rgba(0,0,0,0.36);
+        rgba(0,0,0,0.42);
       border: 1px solid rgba(245,210,122,0.28);
     }
 
@@ -204,17 +253,39 @@
       border-top: 1px solid rgba(245,210,122,0.16);
       color: rgba(255,255,255,0.50);
       font-size: 0.9rem;
+      position: relative;
+      z-index: 1;
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 900px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+
       .steps {
         grid-template-columns: 1fr;
       }
 
+      .report-img {
+        max-height: 480px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 14px;
+        background-attachment: scroll;
+      }
+
       .header,
       .content {
-        padding-left: 22px;
-        padding-right: 22px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .logo {
+        width: 86px;
+        height: 86px;
       }
 
       .btn {
@@ -227,8 +298,10 @@
 <body>
   <main class="container">
     <section class="header">
-      <div class="seal">G</div>
+      <img class="logo" src="./arquetipos_logo.png" alt="Arquétipos Maçônicos" />
+
       <h1>Pagamento aprovado</h1>
+
       <p class="subtitle">
         Seu acesso ao Relatório de Arquétipos Maçônicos foi liberado.
         Agora falta apenas responder ao questionário para que o sistema gere o seu relatório personalizado.
@@ -236,50 +309,59 @@
     </section>
 
     <section class="content">
-      <div class="alert">
-        <p>
-          <strong>Importante:</strong> utilize no formulário o
-          <strong>mesmo e-mail informado na compra</strong>.
-          O envio do relatório é liberado automaticamente apenas para o e-mail vinculado ao pagamento aprovado.
-        </p>
-      </div>
+      <div class="main-grid">
+        <div>
+          <div class="alert">
+            <p>
+              <strong>Importante:</strong> utilize no formulário o
+              <strong>mesmo e-mail informado na compra</strong>.
+              O envio do relatório é liberado automaticamente apenas para o e-mail vinculado ao pagamento aprovado.
+            </p>
+          </div>
 
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Pagamento confirmado</h3>
-          <p>Sua compra foi aprovada e seu e-mail foi autorizado no sistema.</p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <h3>Pagamento confirmado</h3>
+              <p>Sua compra foi aprovada e seu e-mail foi autorizado no sistema.</p>
+            </div>
+
+            <div class="step">
+              <div class="step-number">2</div>
+              <h3>Responda o formulário</h3>
+              <p>Preencha as perguntas com atenção usando o mesmo e-mail da compra.</p>
+            </div>
+
+            <div class="step">
+              <div class="step-number">3</div>
+              <h3>Receba o PDF</h3>
+              <p>O relatório será gerado e enviado automaticamente para seu e-mail.</p>
+            </div>
+          </div>
+
+          <div class="cta-box">
+            <h2>Responda agora e revele seu arquétipo dominante</h2>
+            <p>O questionário leva poucos minutos e é necessário para gerar seu relatório.</p>
+
+            <a
+              class="btn"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfzeCMHi5fQCu8CCtRp1WqWYLScOVsUTORZ7BX_iKoowe9M9w/viewform"
+              target="_blank"
+              rel="noopener"
+            >
+              Responder questionário agora
+            </a>
+
+            <p class="note">
+              Caso tenha usado outro e-mail por engano, entre em contato pelo suporte informado no comprovante da compra.
+            </p>
+          </div>
         </div>
 
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Responda o formulário</h3>
-          <p>Preencha as perguntas com atenção usando o mesmo e-mail da compra.</p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Receba o PDF</h3>
-          <p>O relatório será gerado e enviado automaticamente para seu e-mail.</p>
-        </div>
-      </div>
-
-      <div class="cta-box">
-        <h2>Responda agora e revele seu arquétipo dominante</h2>
-        <p>O questionário leva poucos minutos e é necessário para gerar seu relatório.</p>
-
-        <a
-          class="btn"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSfzeCMHi5fQCu8CCtRp1WqWYLScOVsUTORZ7BX_iKoowe9M9w/viewform"
-          target="_blank"
-          rel="noopener"
-        >
-          Responder questionário agora
-        </a>
-
-        <p class="note">
-          Caso tenha usado outro e-mail por engano, entre em contato pelo suporte informado no comprovante da compra.
-        </p>
+        <aside class="report-card">
+          <h2>Prévia do relatório</h2>
+          <img class="report-img" src="./modelo-relatorio.png" alt="Modelo do Relatório de Arquétipos Maçônicos" />
+        </aside>
       </div>
     </section>
 
